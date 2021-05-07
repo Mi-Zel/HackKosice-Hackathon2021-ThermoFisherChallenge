@@ -15,11 +15,15 @@
 
 ## Protoype
 
-*The program can't fitt ellipse yet. It calculates the cordinates where the ellipse lies. It times the whole proces and writes data to the .csv file.*
+*The program can't fitt ellipse yet. It calculates the cordinates where the ellipse lies. It times the whole proces and writes data to the "data.csv" file.*
 
 ## How to try
 
 *Please copy the images (in .tiff format) to folder called "images" than open "fittingg.py" and run it. If you dont have all the required libraries instaled please do so before running the program otherwise it won't work.*
+
+*To see the result data please open the "data.csv'.*
+
+*You can also run the Jupiter notebook to see how are we workin on the tasks and you can try to display same things.*
 
 ## Challenges and accomplishments
 
