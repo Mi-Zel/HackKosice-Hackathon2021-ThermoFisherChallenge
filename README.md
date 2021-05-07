@@ -1,42 +1,37 @@
 # Hack Kosice Marathon: Your project name
-
-*A template for projects submitted to HK Marathon 2021. You can [fork this repository](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) and use it as a starting point.*
-
 ## Team
 
-*Your name here!*
+*JustUs*
 
 ### Team members
 
-- Teammate 1, School
-- Teammate 2, School
-- Teammate 3, School
+- Mikuláš Zelenák, Spojená škola svätej Uršule
+- Viera Michaela Blažíčková, Spojená škola svätého Františka z Assisi
+
 
 ## Description
 
-*A clear statement of the challenges, issues, problems or gaps that your project solves and a brief description of how your project tackles the areas. What is the value of your solution? Who are the target users?*
+*We tried to create programm that will analyze an image and fitt an ellipse aroud the ellipse shaped object in the image.*
 
 ## Protoype
 
-*Describe the basic functionality of your prototype. What are the features you were able to implement? What features would you like to implement?*
+*The program can't fitt ellipse yet. It calculates the cordinates where the ellipse lies. It times the whole proces and writes data to the .csv file.*
 
 ## How to try
 
-*List any URLs relevant to demonstrating your prototype, e.g. a live url where judges can preview your app. Note that judges won't be able to setup anything in their computers.*
-
-## Presentation
-
-*List any links to your presentation or additional materials that you want to share with the judges.*
+*Please copy the images (in .tiff format) to folder called "images" than open "fittingg.py" and run it. If you dont have all the required libraries instaled please do so before running the program otherwise it won't work.*
 
 ## Challenges and accomplishments
 
-*Is there anything unexpected that you learned over the course of this project?*
+*We learnt how to work with images, grafs, how to give image more contrast, what is convolution how does it work and how to use it. We practiced working with numpy and pandas libraries*
 
-*Is there something your team is particularly proud of, related to this project?*
+*We managed to optimize and speed up the programm by procesing only the new images. If you try to proces the same image (or image with same name) program will just skip it. This way you can just add images and run programm without worrting that it will process the same images again. Or when you have folder with images and you added newones you can just copy all images into "images" folder in our app and it will proces just the newones. This way you will save much time and work for procesor.*
+
+*The programm processes one image at a time and dthis way it savas memory.*
 
 ## Next steps
 
-*What do you need to do next to turn this prototype into a working solution?*
+*We need to implement ellipse fitting. We need to optimize the convolution and finding edges. We need to implement evaluation if there is is ellipse or not. We need to optimize it for harder recognizable images.*
 
 ## License
 
