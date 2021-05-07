@@ -1,42 +1,43 @@
-# Hack Kosice Marathon: Your project name
-## Team
+# Two-dimensional Savitzky-Golay filter
 
-*JustUs*
+A Savitzky–Golay filter is a digital filter that can be applied to a set of digital data points for the purpose of smoothing the data, that is, to increase the precision of the data without distorting the signal tendency. ([wikipedia](https://en.wikipedia.org/wiki/Savitzky–Golay_filter))
 
-### Team members
+This code implements two-dimensional Savitzky-Golay filter that can be used for smoothing surfaces or images [1, 2].
 
-- Mikuláš Zelenák, Spojená škola svätej Uršule
-- Viera Michaela Blažíčková, Spojená škola svätého Františka z Assisi
+## The example of usage
+
+```python
+import numpy as np
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+import sgolay2
+
+np.random.seed(12345)
+
+x, y = np.mgrid[-5:6:.5, -5:6:.5]
+z = y * np.sin(x) + x * np.cos(y)
+zn = z + np.random.randn(*x.shape) * 2.
+
+zs = sgolay2.SGolayFilter2(window_size=9, poly_order=3)(zn)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+ax.plot_wireframe(x, y, zn, linewidths=0.5, color='r')
+ax.scatter(x, y, zn, s=5, c='r')
+
+ax.plot_surface(x, y, zs, linewidth=0)
+ax.plot_surface(x, y, z, color='y', linewidth=0, alpha=0.4)
+
+plt.show()
+```
+
+<img width="592" alt="sgolay2_surface" src="https://user-images.githubusercontent.com/1299189/54092147-bc511b00-4399-11e9-9be2-c44ce697161e.png">
 
 
-## Description
+## References
 
-*We tried to create programm that will analyze an image and fitt an ellipse aroud the ellipse shaped object in the image.*
-
-## Protoype
-
-*The program can't fitt ellipse yet. It calculates the cordinates where the ellipse lies. It times the whole proces and writes data to the "data.csv" file.*
-
-## How to try
-
-*Please copy the images (in .tiff format) to folder called "images" than open "fittingg.py" and run it. If you dont have all the required libraries instaled please do so before running the program otherwise it won't work.*
-
-*To see the result data please open the "data.csv'.*
-
-*You can also run the Jupiter notebook to see how are we workin on the tasks and you can try to display same things.*
-
-## Challenges and accomplishments
-
-*We learnt how to work with images, grafs, how to give image more contrast, what is convolution how does it work and how to use it. We practiced working with numpy and pandas libraries*
-
-*We managed to optimize and speed up the programm by procesing only the new images. If you try to proces the same image (or image with same name) program will just skip it. This way you can just add images and run programm without worrting that it will process the same images again. Or when you have folder with images and you added newones you can just copy all images into "images" folder in our app and it will proces just the newones. This way you will save much time and work for procesor.*
-
-*The programm processes one image at a time and dthis way it savas memory.*
-
-## Next steps
-
-*We need to implement ellipse fitting. We need to optimize the convolution and finding edges. We need to implement evaluation if there is is ellipse or not. We need to optimize it for harder recognizable images.*
-
-## License
-
-*This repository includes an [unlicense](http://unlicense.org/) statement though you may want [to choose a different license](https://choosealicense.com/).*
+1. Ratzlaff, Kenneth L.; Johnson, Jean T. (1989). "Computation of two-dimensional polynomial least-squares convolution smoothing integers". Anal. Chem. 61 (11): 1303–5. doi:10.1021/ac00186a026.
+2. Krumm, John. "Savitzky–Golay filters for 2D Images". Microsoft Research, Redmond.
